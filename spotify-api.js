@@ -39,3 +39,19 @@ const getPodcast = async (podcast_id) => {
         Authorization: `Bearer ${access_token}`,
       },
     });
+
+    const show = JSON.parse(JSON.stringify(response.data));
+
+    const desc = show.description;
+    const url = show.href;
+    const lang = show.languages;
+    const name = show.name;
+    const publisher = show.publisher;
+    const total_episodes = show.total_episodes;
+
+    showDetails.push(desc, url, lang, name, publisher, total_episodes);
+    return showDetails;
+  } catch (error) {
+    console.log(error);
+  }
+};
