@@ -30,6 +30,17 @@ const getDetails = async () => {
     throw error;
   }
 };
+
+app.get("/farklidusun", async (req, res) => {
+  try {
+    const { showName, showDesc, showPublisher } = await getDetails();
+    res.json({ name: showName, desc: showDesc, publisher: showPublisher });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 app.listen(3000, () => {
   console.log("server started");
 });
