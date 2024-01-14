@@ -30,3 +30,6 @@ const getDetails = async () => {
     throw error;
   }
 };
+app.listen(3000, () => {
+  console.log("server started");
+});
