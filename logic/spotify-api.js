@@ -47,25 +47,13 @@ const getPodcast = async (podcast_id) => {
     const lang = show.languages;
     const name = show.name;
     const publisher = show.publisher;
-    const total_episodes = show.total_episodes;
+    const noe = show.total_episodes;
 
-    showDetails.push(desc, url, lang, name, publisher, total_episodes);
+    showDetails.push(name, desc, publisher, lang, noe, url);
     return showDetails;
   } catch (error) {
     console.log(error);
   }
 };
 
-const farkli_dusun = "3imVa0uYZnmgrqKHj3o8Sq";
-const pop = "0TezKJDp9Z977SSZLSpMNo";
-const meksika_acmazi = "1g3XuO31nyfA88ZdD8yWBP";
-const stoikyasam = "12xYY9rBh4wLSADd02g6uH";
-const bu_mu_yani = "5EIiOWjqVsr6WMvzZwjdxV";
-
-function getDesc(id) {
-  getPodcast(id).then((showDetails) => {
-    console.log(showDetails[0]);
-  });
-}
-
-module.exports = getDesc;
+module.exports = { getPodcast };
