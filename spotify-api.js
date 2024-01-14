@@ -27,3 +27,15 @@ const getAuth = async () => {
     console.log(error);
   }
 };
+
+const getPodcast = async (podcast_id) => {
+  //request token using getAuth() function
+  const access_token = await getAuth();
+
+  const api_url = `https://api.spotify.com/v1/shows/${podcast_id}`;
+  try {
+    const response = await axios.get(api_url, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
